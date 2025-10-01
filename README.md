@@ -5,6 +5,13 @@ Users can flip cards to reveal answers and shuffle through them in random order.
 
 ---
 
+## 🖼️ Preview
+Below is a short GIF walkthrough showing the app in action (flip a card, then press Next to view another card):
+
+[Walkthrough](./flashcards_walkthrough.gif)
+
+---
+
 ## 🚀 Features
 - Displays a **title**, **short description**, and **total number of cards**
 - Shows **one card at a time**
@@ -14,8 +21,11 @@ Users can flip cards to reveal answers and shuffle through them in random order.
 
 ---
 
-## 🖼️ Preview
-(Add your GIF walkthrough here once recorded)  
+Walkthrough steps shown in the GIF:
+- Click the card to flip it and reveal the answer.
+- Click the card again (or press Enter) to flip it back.
+- Press the "Next" button to show a random new card.
+
 
 ---
 
