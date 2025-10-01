@@ -5,7 +5,7 @@ function Flashcard({ cards }) {
   const [flipped, setFlipped] = useState(false);
 
   const handleFlip = () => {
-    setFlipped(!flipped);
+    setFlipped((s) => !s);
   };
 
   const nextCard = () => {
@@ -16,8 +16,27 @@ function Flashcard({ cards }) {
 
   return (
     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div onClick={handleFlip} className="card">
-        <div className="content">{flipped ? cards[index].answer : cards[index].question}</div>
+      <div
+        className={`card ${flipped ? 'is-flipped' : ''}`}
+        onClick={handleFlip}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleFlip();
+          }
+        }}
+        role="button"
+        tabIndex={0}
+        aria-pressed={flipped}
+      >
+        <div className="card-inner">
+          <div className="card-face card-front">
+            <div className="content">{cards[index].question}</div>
+          </div>
+          <div className="card-face card-back">
+            <div className="content">{cards[index].answer}</div>
+          </div>
+        </div>
       </div>
       <div className="controls">
         <button onClick={nextCard}>Next</button>

@@ -83,6 +83,44 @@ p {
   user-select: none;
 }
 
+.card {
+  perspective: 1400px; /* enable 3D space for the flip */
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(.2,.9,.3,1);
+}
+
+.card.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  box-sizing: border-box;
+  border-radius: 18px;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(180deg, #f8f9ff 0%, #eef6ff 100%);
+}
+
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 36px 80px rgba(99, 102, 241, 0.12), 0 10px 28px rgba(16,24,40,0.06);
