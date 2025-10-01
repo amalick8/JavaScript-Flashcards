@@ -13,20 +13,19 @@ Below is a short GIF walkthrough showing the app in action (flip a card, then pr
 
 ---
 
+Walkthrough steps shown in the GIF:
+- Click the card to flip it and reveal the answer.
+- Click the card again (or press Enter) to flip it back.
+- Press the "Next" button to show a random new card.
+
+---
+
 ## 🚀 Features
 - Displays a **title**, **short description**, and **total number of cards**
 - Shows **one card at a time**
 - Click a card to **flip between question and answer**
 - Click **Next** to show a random card
 - Modern UI with styled cards and buttons
-
----
-
-Walkthrough steps shown in the GIF:
-- Click the card to flip it and reveal the answer.
-- Click the card again (or press Enter) to flip it back.
-- Press the "Next" button to show a random new card.
-
 
 ---
 
