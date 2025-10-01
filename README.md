@@ -6,9 +6,10 @@ Users can flip cards to reveal answers and shuffle through them in random order.
 ---
 
 ## 🖼️ Preview
+
 Below is a short GIF walkthrough showing the app in action (flip a card, then press Next to view another card):
 
-[Walkthrough](./flashcards_walkthrough.gif)
+![Walkthrough](./ezgif-46a32fc123f96a.gif)
 
 ---
 
