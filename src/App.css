@@ -15,30 +15,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(900px 300px at 10% 10%, rgba(99, 102, 241, 0.10), transparent 8%),
-              radial-gradient(900px 300px at 90% 90%, rgba(99, 102, 241, 0.06), transparent 10%),
-              linear-gradient(180deg, #fff7ed 0%, #fff1f0 40%, #f0fbff 100%);
-  color: #052238;
-  font-family: Inter, 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+  background: #f0fbff;
+  color: #16324f; /* slightly warmer dark color */
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 #root > div {
   width: 100%;
-  max-width: 1000px;
-  padding: 64px 36px;
+  max-width: 840px;
+  padding: 40px 24px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 h1 {
-  font-size: 2.25rem;
-  margin: 0 0 6px 0;
-  font-weight: 700;
-  color: #071330;
+  font-size: 1.9rem;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  color: #0f2133;
   text-align: center;
   position: relative;
 }
@@ -46,12 +44,12 @@ h1 {
 h1::after {
   content: '';
   display: block;
-  width: 120px;
-  height: 8px;
-  margin: 14px auto 0 auto;
+  width: 96px;
+  height: 6px;
+  margin: 12px auto 0 auto;
   border-radius: 999px;
-  background: #7c5cff;
-  box-shadow: 0 8px 26px rgba(124, 95, 255, 0.18);
+  background: #6b63ff; /* muted accent */
+  opacity: 0.9;
 }
 
 p {
@@ -62,29 +60,29 @@ p {
 }
 
 .card {
-  width: 760px;
-  max-width: calc(100% - 60px);
-  height: 420px;
-  background: linear-gradient(180deg, #ffffff 0%, #fffefd 100%);
-  color: #052238;
+  width: 640px;
+  max-width: calc(100% - 48px);
+  height: 360px;
+  background: #ffffff;
+  color: #0f2133;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  border-radius: 18px;
-  border: 1px solid rgba(99, 102, 241, 0.08);
-  box-shadow: 0 28px 60px rgba(99, 102, 241, 0.08), 0 6px 18px rgba(16,24,40,0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(100, 100, 160, 0.06);
+  box-shadow: 0 8px 20px rgba(20, 36, 58, 0.06);
   cursor: pointer;
-  margin: 30px auto;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin: 24px auto;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
   text-align: center;
-  padding: 36px 28px;
+  padding: 28px 20px;
   user-select: none;
 }
 
 .card {
-  perspective: 1400px; /* enable 3D space for the flip */
+  perspective: 800px; /* enable 3D space for the flip */
 }
 
 .card-inner {
@@ -92,7 +90,7 @@ p {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.7s cubic-bezier(.2,.9,.3,1);
+  transition: transform 0.45s ease-in-out;
 }
 
 .card.is-flipped .card-inner {
@@ -107,9 +105,9 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 28px;
+  padding: 20px;
   box-sizing: border-box;
-  border-radius: 18px;
+  border-radius: 12px;
 }
 
 .card-front {
@@ -118,12 +116,13 @@ p {
 
 .card-back {
   transform: rotateY(180deg);
-  background: linear-gradient(180deg, #f8f9ff 0%, #eef6ff 100%);
+  background: #fbfdff;
 }
 
+
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 36px 80px rgba(99, 102, 241, 0.12), 0 10px 28px rgba(16,24,40,0.06);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(20,36,58,0.08);
 }
 
 .card:active {
@@ -132,57 +131,57 @@ p {
 
 .card .content {
   max-width: 92%;
-  line-height: 1.6;
-  font-size: 1.6rem;
+  line-height: 1.5;
+  font-size: 1.25rem;
 }
 
 .controls {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
 button {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 28px;
+  gap: 10px;
+  padding: 10px 18px;
   border: none;
-  border-radius: 16px;
-  background: #7c5cff;
+  border-radius: 10px;
+  background: #6b63ff;
   color: #ffffff;
-  font-size: 1.05rem;
-  font-weight: 800;
+  font-size: 0.98rem;
+  font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 24px 54px rgba(124, 95, 255, 0.14);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  box-shadow: 0 6px 18px rgba(20,36,58,0.06);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
 }
 
 button:hover {
-  transform: translateY(-6px);
-  filter: brightness(1.03);
-  box-shadow: 0 30px 70px rgba(124, 95, 255, 0.16);
+  transform: translateY(-3px);
+  filter: brightness(1.02);
+  box-shadow: 0 10px 24px rgba(20,36,58,0.08);
 }
 
 button:active {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 button:focus,
 button:focus-visible {
-  outline: 4px solid rgba(124, 95, 255, 0.18);
-  outline-offset: 6px;
+  outline: 2px solid rgba(107,99,255,0.14);
+  outline-offset: 4px;
 }
 
 @media (max-width: 760px) {
-  body > div { padding: 28px 18px; }
-  h1 { font-size: 1.6rem; }
-  .card { height: 300px; font-size: 1rem; padding: 18px; }
-  .controls { padding: 0 12px; }
+  body > div { padding: 20px 14px; }
+  h1 { font-size: 1.4rem; }
+  .card { height: 260px; font-size: 1rem; padding: 14px; }
+  .controls { padding: 0 8px; }
   button { width: 100%; justify-content: center; }
 
-  .card .content { font-size: 1.15rem; }
+  .card .content { font-size: 1rem; }
 }
 @media (max-width: 760px) {
 
