@@ -1,20 +1,37 @@
-<<<<<<< HEAD
-# React + Vite
+# 📚 Flashcards Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple interactive flashcards web app built with **React + Vite**.  
+Users can flip cards to reveal answers and shuffle through them in random order.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- Displays a **title**, **short description**, and **total number of cards**
+- Shows **one card at a time**
+- Click a card to **flip between question and answer**
+- Click **Next** to show a random card
+- Modern UI with styled cards and buttons
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🖼️ Preview
+(Add your GIF walkthrough here once recorded)  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# JavaScript-Flashcards
->>>>>>> 7c3ed05b29d6d86314ec7d6fefa547607afaa4a1
+## ✅ Requirements Checklist
+- [x] Title of card set is displayed  
+- [x] Short description is displayed  
+- [x] Total number of cards is displayed  
+- [x] Cards stored as an array of question/answer pairs  
+- [x] Only one card shows at a time  
+- [x] Clicking card flips between front and back  
+- [x] Clicking **Next** shows a random card  
+
+---
+
+## 🛠️ Installation & Setup
+Clone the repo:
+```bash
+git clone https://github.com/amalick8/JavaScript-Flashcards.git
+cd JavaScript-Flashcards
