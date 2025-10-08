@@ -1,4 +1,4 @@
-# 📚 JavaScript Flashcards - Part 2
+# 📚 JavaScript Flashcards - Part 1 & 2
 
 An interactive flashcards web app built with **React + Vite** for studying JavaScript fundamentals.  
 Users can enter their guesses, get feedback, and navigate through cards sequentially.
