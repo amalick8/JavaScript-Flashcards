@@ -1,42 +1,59 @@
-# 📚 Flashcards Project
+# 📚 JavaScript Flashcards - Part 2
 
-A simple interactive flashcards web app built with **React + Vite**.  
-Users can flip cards to reveal answers and shuffle through them in random order.  
+An interactive flashcards web app built with **React + Vite** for studying JavaScript fundamentals.  
+Users can enter their guesses, get feedback, and navigate through cards sequentially.
 
 ---
 
 ## 🖼️ Preview
 
-Below is a short GIF walkthrough showing the app in action (flip a card, then press Next to view another card):
+Below is a short GIF walkthrough showing the app in action:
 
 ![Walkthrough](./ezgif-46a32fc123f96a.gif)
 
 ---
 
-Walkthrough steps shown in the GIF:
-- Click the card to flip it and reveal the answer.
-- Click the card again (or press Enter) to flip it back.
-- Press the "Next" button to show a random new card.
-
----
-
 ## 🚀 Features
-- Displays a **title**, **short description**, and **total number of cards**
-- Shows **one card at a time**
-- Click a card to **flip between question and answer**
-- Click **Next** to show a random card
-- Modern UI with styled cards and buttons
+
+### Core Features
+- **Input-based Learning**: Enter your guess before seeing the answer
+- **Answer Validation**: Get immediate feedback on correct/incorrect answers
+- **Sequential Navigation**: Move forward and backward through cards in order
+- **Visual Feedback**: Cards and messages change color based on answer correctness
+- **Smart Answer Matching**: Flexible matching ignores case, punctuation, and partial answers
+
+### UI/UX Features
+- Displays **title**, **description**, and **total number of cards**
+- Modern card flip animations with 3D perspective
+- Responsive design that works on mobile devices
+- Clear navigation controls with disabled states at boundaries
+- Card counter showing current position (e.g., "3 / 8")
 
 ---
 
 ## ✅ Requirements Checklist
+
+### Part 1 Requirements
 - [x] Title of card set is displayed  
 - [x] Short description is displayed  
 - [x] Total number of cards is displayed  
 - [x] Cards stored as an array of question/answer pairs  
 - [x] Only one card shows at a time  
 - [x] Clicking card flips between front and back  
-- [x] Clicking **Next** shows a random card  
+
+### Part 2 Requirements (NEW!)
+- [x] **Input box with submit button** for user guesses
+- [x] **Visual feedback** for correct answers (green border/message)
+- [x] **Visual feedback** for incorrect answers (red border/message)
+- [x] **Forward/Next button** navigates to next card in sequence
+- [x] **Previous/Back button** navigates to previous card in sequence
+- [x] **Navigation boundaries** - buttons disabled at start/end (no wrap-around)
+
+### Stretch Features
+- [x] **Flexible answer matching** - ignores case, punctuation, partial matches
+- [ ] Shuffle button to randomize card order
+- [ ] Streak counter for correct/incorrect answers
+- [ ] Master card functionality to remove cards from pool  
 
 ---
 
