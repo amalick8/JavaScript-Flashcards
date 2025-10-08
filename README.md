@@ -9,7 +9,7 @@ Users can enter their guesses, get feedback, and navigate through cards sequenti
 
 Below is a short GIF walkthrough showing the app in action:
 
-![Walkthrough](./ezgif-8a7631f45a4f4b.gi)
+![Walkthrough](./ezgif-8a7631f45a4f4b.gif)
 
 ---
 
