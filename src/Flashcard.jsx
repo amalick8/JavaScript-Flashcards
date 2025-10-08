@@ -212,5 +212,5 @@ function Flashcard({ cards }) {
   );
 }
 
-export default Flashcard;
+export default ;
 
