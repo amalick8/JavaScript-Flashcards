@@ -6,9 +6,12 @@ function Flashcard({ cards }) {
   const [userGuess, setUserGuess] = useState("");
   const [feedback, setFeedback] = useState("");
   const [hasGuessed, setHasGuessed] = useState(false);
+  const [cardOrder, setCardOrder] = useState(cards.map((_, i) => i));
+  const [currentStreak, setCurrentStreak] = useState(0);
+  const [longestStreak, setLongestStreak] = useState(0);
+  const [masteredCards, setMasteredCards] = useState([]);
 
   const handleFlip = () => {
-    if (!hasGuessed) return;
     setFlipped((s) => !s);
   };
 
@@ -32,8 +35,9 @@ function Flashcard({ cards }) {
     const guessWords = guess.split(' ');
     
     const keyWordsMatch = guessWords.some(word => 
-      word.length > 2 && correctWords.some(correctWord => 
-        correctWord.includes(word) || word.includes(correctWord)
+      word.length > 3 && correctWords.some(correctWord => 
+        (correctWord.includes(word) && word.length > correctWord.length * 0.5) ||
+        (word.includes(correctWord) && correctWord.length > word.length * 0.5)
       )
     );
     
@@ -41,18 +45,52 @@ function Flashcard({ cards }) {
     
     setFeedback(isCorrect ? "correct" : "incorrect");
     setHasGuessed(true);
+
+    if (isCorrect) {
+      const newStreak = currentStreak + 1;
+      setCurrentStreak(newStreak);
+      if (newStreak > longestStreak) {
+        setLongestStreak(newStreak);
+      }
+    } else {
+      setCurrentStreak(0);
+    }
   };
 
+  const activeCards = cardOrder.filter(i => !masteredCards.includes(i));
+  const currentCardIndex = cardOrder[index];
+  const activeIndex = activeCards.indexOf(currentCardIndex);
+
   const nextCard = () => {
-    if (index < cards.length - 1) {
-      setIndex(index + 1);
+    if (activeIndex < activeCards.length - 1) {
+      const nextActiveCard = activeCards[activeIndex + 1];
+      setIndex(cardOrder.indexOf(nextActiveCard));
       resetCard();
     }
   };
 
   const prevCard = () => {
-    if (index > 0) {
-      setIndex(index - 1);
+    if (activeIndex > 0) {
+      const prevActiveCard = activeCards[activeIndex - 1];
+      setIndex(cardOrder.indexOf(prevActiveCard));
+      resetCard();
+    }
+  };
+
+  const shuffleCards = () => {
+    const shuffled = [...cardOrder].sort(() => Math.random() - 0.5);
+    setCardOrder(shuffled);
+    setIndex(0);
+    resetCard();
+  };
+
+  const markAsMastered = () => {
+    setMasteredCards([...masteredCards, currentCardIndex]);
+    if (activeIndex < activeCards.length - 1) {
+      nextCard();
+    } else if (activeIndex > 0) {
+      prevCard();  
+    } else {
       resetCard();
     }
   };
@@ -75,8 +113,24 @@ function Flashcard({ cards }) {
     handleSubmitGuess();
   };
 
+  if (activeCards.length === 0) {
+    return (
+      <div style={{ textAlign: 'center', padding: '40px' }}>
+        <h2>Congratulations! 🎉</h2>
+        <p>You've mastered all the cards!</p>
+        <p>Longest streak: {longestStreak}</p>
+      </div>
+    );
+  }
+
   return (
     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div className="stats">
+        <span className="streak">Current: {currentStreak}</span>
+        <span className="streak">Best: {longestStreak}</span>
+        <span className="remaining">{activeCards.length} cards left</span>
+      </div>
+
       {!hasGuessed && (
         <form onSubmit={handleSubmit} className="guess-section">
           <input
@@ -104,44 +158,54 @@ function Flashcard({ cards }) {
         onClick={handleFlip}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            if (hasGuessed) {
-              e.preventDefault();
-              handleFlip();
-            }
+            e.preventDefault();
+            handleFlip();
           }
         }}
         role="button"
-        tabIndex={hasGuessed ? 0 : -1}
+        tabIndex={0}
         aria-pressed={flipped}
-        style={{ cursor: hasGuessed ? 'pointer' : 'default' }}
+        style={{ cursor: 'pointer' }}
       >
         <div className="card-inner">
           <div className="card-face card-front">
-            <div className="content">{cards[index].question}</div>
+            <div className="content">{cards[currentCardIndex].question}</div>
           </div>
           <div className="card-face card-back">
-            <div className="content">{cards[index].answer}</div>
+            <div className="content">{cards[currentCardIndex].answer}</div>
           </div>
         </div>
       </div>
 
+      {hasGuessed && (
+        <button onClick={markAsMastered} className="master-btn">
+          ✓ Mark as Mastered
+        </button>
+      )}
+
       <div className="controls">
         <button 
           onClick={prevCard} 
-          disabled={index === 0}
+          disabled={activeIndex === 0}
           className="nav-btn prev-btn"
         >
           ← Previous
         </button>
         <span className="card-counter">
-          {index + 1} / {cards.length}
+          {activeIndex + 1} / {activeCards.length}
         </span>
         <button 
           onClick={nextCard} 
-          disabled={index === cards.length - 1}
+          disabled={activeIndex === activeCards.length - 1}
           className="nav-btn next-btn"
         >
           Next →
+        </button>
+      </div>
+
+      <div className="extra-controls">
+        <button onClick={shuffleCards} className="shuffle-btn">
+          🔀 Shuffle
         </button>
       </div>
     </div>

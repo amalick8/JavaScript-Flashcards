@@ -51,9 +51,9 @@ Below is a short GIF walkthrough showing the app in action:
 
 ### Stretch Features
 - [x] **Flexible answer matching** - ignores case, punctuation, partial matches
-- [ ] Shuffle button to randomize card order
-- [ ] Streak counter for correct/incorrect answers
-- [ ] Master card functionality to remove cards from pool  
+- [x] **Shuffle button** to randomize card order
+- [x] **Streak counter** for current and longest streaks
+- [x] **Master card functionality** to remove cards from pool  
 
 ---
 
