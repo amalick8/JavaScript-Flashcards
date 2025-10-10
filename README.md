@@ -5,6 +5,11 @@ Users can enter their guesses, get feedback, and navigate through cards sequenti
 
 ---
 
+## 🌍 Live Demo
+👉 [Click here to view the live app](https://amalick8.github.io/JavaScript-Flashcards/)  
+
+---
+
 ## 🖼️ Preview
 
 Below is a short GIF walkthrough showing the app in action:
